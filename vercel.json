@@ -2,10 +2,12 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
+      "src": "food-product-explorer/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build"
+        "distDir": "dist",
+        "installCommand": "cd food-product-explorer && npm install",
+        "buildCommand": "cd food-product-explorer && npm run build"
       }
     }
   ],
