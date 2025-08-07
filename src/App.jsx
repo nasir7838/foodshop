@@ -34,8 +34,15 @@ function App() {
 
 export default function AppWithRouter() {
   return (
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ProductProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path="product/:id" element={<ProductDetail />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ProductProvider>
   );
 }

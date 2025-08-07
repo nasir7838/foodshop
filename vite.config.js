@@ -1,17 +1,16 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  build: {
-    rollupOptions: {
-      external: ['react', 'react-dom', 'react-router-dom'],
-    },
-  },
   resolve: {
     alias: {
-      'react-router-dom': 'react-router-dom/dist/index.js',
+      '@': path.resolve(__dirname, './src'),
     },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom'],
   },
 })
