@@ -4,4 +4,14 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      external: ['react', 'react-dom', 'react-router-dom'],
+    },
+  },
+  resolve: {
+    alias: {
+      'react-router-dom': 'react-router-dom/dist/index.js',
+    },
+  },
 })
